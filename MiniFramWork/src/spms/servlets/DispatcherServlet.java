@@ -30,7 +30,6 @@ public class DispatcherServlet extends HttpServlet {
 					request.setAttribute("member", new Member().setEmail(request.getParameter("email"))
 															   .setPassword(request.getParameter("password"))
 															   .setName(request.getParameter("name")));
-					
 				}
 			}else if("member/update.do".equals(servletPath)) {
 				pageControllerPath="/member/update";
