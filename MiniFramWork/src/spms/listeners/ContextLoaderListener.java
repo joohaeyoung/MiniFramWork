@@ -14,7 +14,7 @@ import spms.controls.MemberAddController;
 import spms.controls.MemberDeleteController;
 import spms.controls.MemberListController;
 import spms.controls.MemberUpdateController;
-import spms.dao.MemberDao;
+import spms.dao.MySqlMemberDao;
 
 @WebListener
 public class ContextLoaderListener implements ServletContextListener {
@@ -29,7 +29,7 @@ public class ContextLoaderListener implements ServletContextListener {
       DataSource ds = (DataSource)initialContext.lookup(
           "java:comp/env/jdbc/studydb");
       
-      MemberDao memberDao = new MemberDao();
+      MySqlMemberDao memberDao = new MySqlMemberDao();
       memberDao.setDataSource(ds);
       
       sc.setAttribute("/auth/login.do", new LogInController().setMemberDao(memberDao));
