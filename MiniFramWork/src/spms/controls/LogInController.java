@@ -9,6 +9,12 @@ import spms.vo.Member;
 
 public class LogInController implements Controller{
 	
+	MemberDao memberDao;
+	public LogInController setMemberDao(MemberDao memberDao) {
+		this.memberDao = memberDao;
+		return this;
+	}
+	
 	@Override
 	public String execute(Map<String, Object> model) throws Exception {
 		
@@ -16,7 +22,6 @@ public class LogInController implements Controller{
 			return "/auth/LogInForm.jsp"; 
 		}else {		
 			
-			MemberDao memberDao = (MemberDao)model.get("memberDao");
 			Member member = memberDao.exist((String)model.get("email"), (String)model.get("password"));
 			 if (member != null) { 
 			        HttpSession session = (HttpSession)model.get("session");
