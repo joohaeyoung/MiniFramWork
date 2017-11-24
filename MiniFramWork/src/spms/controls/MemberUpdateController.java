@@ -34,10 +34,8 @@ public class MemberUpdateController implements Controller,DataBinding {
 			return "/member/MemberUpdateForm.jsp";
 		
 		}else {
-			
 			memberDao.update(member);
 			return "redirect:list.do";
 		}
 	}
-
 }
